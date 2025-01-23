@@ -1,5 +1,7 @@
 package project.mozit.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 import project.mozit.domain.Enterprises;
@@ -9,7 +11,7 @@ import project.mozit.dto.UsersDTO.Response;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-21T10:42:11+0900",
+    date = "2025-01-23T09:38:06+0900",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
@@ -27,6 +29,7 @@ public class UsersMapperImpl implements UsersMapper {
         users.setUserName( post.getUserName() );
         users.setUserEmail( post.getUserEmail() );
         users.setEnterpriseNum( mapEnterpriseNum( post.getEnterpriseNum() ) );
+        users.setUserSub( post.getUserSub() );
 
         return users;
     }
@@ -45,8 +48,23 @@ public class UsersMapperImpl implements UsersMapper {
         response.setUserId( user.getUserId() );
         response.setUserName( user.getUserName() );
         response.setUserEmail( user.getUserEmail() );
+        response.setUserSub( user.getUserSub() );
 
         return response;
+    }
+
+    @Override
+    public List<Response> usersToResponse(List<Users> users) {
+        if ( users == null ) {
+            return null;
+        }
+
+        List<Response> list = new ArrayList<Response>( users.size() );
+        for ( Users users1 : users ) {
+            list.add( entityToResponse( users1 ) );
+        }
+
+        return list;
     }
 
     private Long userEnterpriseNumEnterpriseNum(Users users) {

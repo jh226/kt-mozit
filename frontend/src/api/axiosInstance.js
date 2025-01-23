@@ -8,6 +8,7 @@ const axiosInstance = axios.create({
 export const attachAuthInterceptors = (getAccessToken, setAccessToken, setUserName) => {
     axiosInstance.interceptors.request.use(
       (config) => {
+        console.log('Request Interceptor Triggered');
         const accessToken = getAccessToken(); 
         console.log('Access Token in Axios Interceptor:', accessToken);
         if (accessToken) {

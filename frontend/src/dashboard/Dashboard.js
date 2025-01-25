@@ -27,7 +27,6 @@ const xThemeComponents = {
 };
 
 export default function Dashboard(props) {
-  console.log('Dashboard props:', props);
   return (
     <AppTheme {...props} themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />

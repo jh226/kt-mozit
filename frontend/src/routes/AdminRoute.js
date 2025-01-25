@@ -19,6 +19,7 @@ const AdminRoutes = () => {
     const { userId } = useAuth();
 
     if (userId !== 'admin') {
+        console.log(userId);
         if(userId){
             alert("관리자만 접근 가능합니다.")
             return <Navigate to="/" replace />;
@@ -28,18 +29,18 @@ const AdminRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/admin/dashboard" element={<DashBoard />} />
-            <Route path="/admin/system-status" element={<SystemStatus />} />
-            <Route path="/admin/traffic" element={<Traffic />} />
-            <Route path="/admin/users" element={<UserListPage />} />
-            <Route path="/admin/notice" element={<NoticeListPage />} />
-            <Route path="/admin/notice/:id" element={<NoticeUpdatePage />} />
-            <Route path="/admin/notice/:id/edit" element={<NoticeEditPage />} />
-            <Route path="/admin/notice/create" element={<NoticeCreatePage />} />
-            <Route path="/admin/qna" element={<QuestionListPage />} />
-            <Route path="/admin/qna/:id" element={<AnswerPage />} />
-            <Route path="/admin/kpi" element={<KPI />} />
-            <Route path="/admin/admin" element={<AdminEdit />} />
+            <Route path="/dashboard" element={<DashBoard />} />
+            <Route path="/system-status" element={<SystemStatus />} />
+            <Route path="/traffic" element={<Traffic />} />
+            <Route path="/users" element={<UserListPage />} />
+            <Route path="/notice" element={<NoticeListPage />} />
+            <Route path="/notice/:id" element={<NoticeUpdatePage />} />
+            <Route path="/notice/:id/edit" element={<NoticeEditPage />} />
+            <Route path="/notice/create" element={<NoticeCreatePage />} />
+            <Route path="/qna" element={<QuestionListPage />} />
+            <Route path="/qna/:id" element={<AnswerPage />} />
+            <Route path="/kpi" element={<KPI />} />
+            <Route path="/admin" element={<AdminEdit />} />
         </Routes>
     );
 };

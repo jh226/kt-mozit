@@ -1,0 +1,10 @@
+opencv-python
+numpy
+ultralytics
+scipy
+fastapi
+requests
+uvicorn
+python-multipart
+azure-storage-blob
+ffmpeg-python
